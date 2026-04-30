@@ -1,63 +1,98 @@
 "use client";
 import { Button } from "@heroui/react";
-import Link from "next/link";
-import { useState } from "react";
-import ThemeChanger from "./ThemeChanger";
 
+import { useState } from "react";
+
+import Image from "next/image";
+import user from "@/assets/user.png";
+import { ThemeSwitch } from "./ThemeSwitch";
+import NavLinks from "./NavLinks";
+import Link from "next/link";
+import logo1 from "@/assets/logo1.png";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navItems = [
+    {
+      href: "/",
+      text: "Home",
+    },
+    {
+      href: "/all_tiles",
+      text: "All Tiles",
+    },
+    {
+      href: "/my_profile",
+      text: "My Profile",
+    },
+  ];
+
   return (
-    <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
-      <header className="flex h-16 items-center justify-between px-6">
+    <nav className="sticky top-0 z-40 w-full bg-[var(--bg-card)] border-b border-separator">
+      <header className="flex p-4 items-center justify-between">
         <div className="md:flex items-center gap-3 hidden ">
-          {/* <Logo /> */}
-          <p className="font-bold">ACME</p>
+          <div>
+            <h1 className="text-4xl font-bold">
+              <span className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-soft)] bg-clip-text text-transparent">
+                Luxury
+              </span>{" "}
+              <span className="bg-gradient-to-r from-[var(--accent-soft)] to-[var(--neutral-warm)] bg-clip-text text-transparent">
+                Tiles
+              </span>
+            </h1>
+          </div>
         </div>
-        <button onClick={() => setOpen(!open)} className="cursor-pointer md:hidden">
+        <button
+          onClick={() => setOpen(!open)}
+          className="cursor-pointer md:hidden"
+        >
           ☰
         </button>
 
         {/* mobile */}
         {open && (
-          <div className="absolute top-16 left-0 w-[150px] flex flex-col items-center gap-4 py-4 md:hidden">
-            {["Home", "All Tiles", "My Profile"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+          <div className=" absolute top-17 left-0 w-38 flex flex-col items-center gap-4 py-4 md:hidden bg-[var(--bg-card)] border border-[var(--border-color)] rounded-md shadow-md ">
+            {navItems.map((item, ind) => (
+              <Link
+                key={ind}
+                href={item.href}
                 className="
-          w-11/12 text-center py-1 rounded-lg
-          transition-all duration-300
+        w-11/12 text-center py-2 rounded-lg
+        transition-all duration-300
 
-          bg-white/5
-          hover:bg-white/10
-          active:bg-white/20
+        text-[var(--text-main)]
+        bg-transparent
 
-          border border-transparent
-          hover:border-white/20
+        hover:bg-[var(--accent)]/10
+        active:bg-[var(--accent)]/20
 
-          focus:outline-none focus:ring-2 focus:ring-indigo-400
-        "
+        border border-transparent
+        hover:border-[var(--accent)]/30
+
+        focus:outline-none
+        focus:ring-2
+        focus:ring-[var(--accent)]
+      "
               >
-                {item}
-              </a>
+                {item.text}
+              </Link>
             ))}
           </div>
         )}
 
-        <ul className="hidden md:flex items-center gap-4">
-          <li>
-            <Link href="#">Features</Link>
-          </li>
-          <li>
-            <Link href="#">Pricing</Link>
-          </li>
-        </ul>
+        <div>
+          <ul className="hidden md:flex items-center gap-4">
+            {navItems.map((item, ind) => (
+              <NavLinks key={ind} href={item.href} text={item.text}></NavLinks>
+            ))}
+          </ul>
+        </div>
         <div className="flex gap-2 items-center">
           <div className="flex gap-2 items-center">
-            <p >User</p>
+            <p>User</p>
+            <Image src={user} alt="user" height={40} width={40} />
             <Button className="btn-primary">Login</Button>
           </div>
-          <ThemeChanger/>
+          <ThemeSwitch />
         </div>
       </header>
     </nav>

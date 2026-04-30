@@ -1,7 +1,8 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { ThemeProvider } from "next-themes";
+
+import Providers from "@/components/Providers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,16 +17,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <body>
-        <ThemeProvider attribute="class">
-          <Navbar/>
+    <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
+      <body className="bg-background text-foreground">
+        <Providers>
+          <Navbar />
           {children}
-          </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

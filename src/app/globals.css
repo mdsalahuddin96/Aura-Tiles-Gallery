@@ -3,34 +3,46 @@
 
 
 :root {
-  /* Light Mode Colors */
-  --bg-body: #f8fafc;
+
+  /* ========== Light Mode Colors ========== */
+  --bg-body: #f4f7f9;
   --bg-card: #ffffff;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
-  --border-color: #e2e8f0;
+  --text-main: #1b2b34;
+  --text-muted: #5f7380;
+  --border-color: #d9e2ec;
   
-  /* Primary & Gradient */
-  --accent: #4f46e5;
-  --btn-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-  --btn-shadow: rgba(79, 70, 229, 0.4);
+  /* Primary & Gradient (based on your blue palette) */
+  --accent: #1B3C53;
+  --accent-soft: #4e6e81;
+
+  --btn-gradient: linear-gradient(135deg, #2a4f66 0%, #1B3C53 100%);
+  --btn-shadow: rgba(27, 60, 83, 0.35);
+
+  /* Warm Neutral */
+  --neutral-warm: #B8A89B;
 }
 
 .dark {
-  /* Dark Mode Colors */
-  --bg-body: #0f172a;
-  --bg-card: #1e293b;
-  --text-main: #f8fafc;
-  --text-muted: #cbd5e1;
-  --border-color: #334155;
+
+  /* ========== Dark Mode Colors ========== */
+  --bg-body: #0D1B24;
+  --bg-card: #132A38;
+  --text-main: #E6EEF3;
+  --text-muted: #A9BDC9;
+  --border-color: #2A3F4C;
   
-  /* Accent for Dark Mode */
-  --accent: #818cf8;
-  --btn-gradient: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
-  --btn-shadow: rgba(129, 140, 248, 0.3);
+  /* Accent adjusted for dark */
+  --accent: #3A6B8A;
+  --accent-soft: #2A4F66;
+
+  --btn-gradient: linear-gradient(135deg, #3A6B8A 0%, #1B3C53 100%);
+  --btn-shadow: rgba(58, 107, 138, 0.30);
+
+  /* Warm Neutral (dark adapted) */
+  --neutral-warm: #6B5E55;
 }
 
-/* Base Styles */
+/* ========== Base Styles ========== */
 body {
   font-family: var(--font-main);
   background-color: var(--bg-body);
@@ -39,7 +51,7 @@ body {
   margin: 0;
 }
 
-/* Tile Gallery Card */
+/* ========== Card ========== */
 .tile-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -53,14 +65,14 @@ body {
   transform: translateY(-4px);
 }
 
-/* Gradient Button */
+/* ========== Button ========== */
 .btn-primary {
   background: var(--btn-gradient);
   color: #ffffff;
-  padding: 12px 24px;
+  padding: 8px;
   border: none;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 500;
   font-family: var(--font-main);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -69,10 +81,10 @@ body {
 
 .btn-primary:hover {
   box-shadow: 0 10px 15px -3px var(--btn-shadow);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
-/* Muted Text helper */
+/* ========== Muted Text ========== */
 .text-muted {
   color: var(--text-muted);
   font-size: 0.9rem;
