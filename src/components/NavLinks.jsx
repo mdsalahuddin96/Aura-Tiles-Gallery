@@ -7,7 +7,7 @@ const NavLinks = ({href, text }) => {
   
   return (
     <li>
-      <Link href={href} className={pathName === href?"rounded-sm text-[var(--text-main)]  bg-[var(--accent)]/30 border border-transparent p-1":"text-[var(--text-muted)]"}>
+      <Link href={href} className={`font-semibold text-[var(--text-muted)] ${pathName === href && "btn-primary"}`}>
        {text}
       </Link>
     </li>
@@ -15,20 +15,3 @@ const NavLinks = ({href, text }) => {
 };
 
 export default NavLinks;
-// className="
-//         w-11/12 text-center py-2 rounded-lg
-//         transition-all duration-300
-
-//         text-[var(--text-main)]
-//         bg-transparent
-
-//         hover:bg-[var(--accent)]/10
-//         active:bg-[var(--accent)]/20
-
-//         border border-transparent
-//         hover:border-[var(--accent)]/30
-
-//         focus:outline-none
-//         focus:ring-2
-//         focus:ring-[var(--accent)]
-//       "

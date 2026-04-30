@@ -1,0 +1,15 @@
+[
+  { "id": "cat_001", "category": "ceramic" },
+  { "id": "cat_002", "category": "marble" },
+  { "id": "cat_003", "category": "granite" },
+  { "id": "cat_004", "category": "wood" },
+  { "id": "cat_005", "category": "pattern" },
+  { "id": "cat_006", "category": "concrete" },
+  { "id": "cat_007", "category": "mosaic" },
+  { "id": "cat_008", "category": "terracotta" },
+  { "id": "cat_009", "category": "geometric" },
+  { "id": "cat_010", "category": "subway" },
+  { "id": "cat_011", "category": "stone" },
+  { "id": "cat_012", "category": "porcelain" },
+  { "id": "cat_013", "category": "decor" }
+]

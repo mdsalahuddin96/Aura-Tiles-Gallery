@@ -1,48 +1,52 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
 
-
 :root {
 
-  /* ========== Light Mode Colors ========== */
-  --bg-body: #f4f7f9;
+  --bg-body: #f6f5f3;             
   --bg-card: #ffffff;
-  --text-main: #1b2b34;
-  --text-muted: #5f7380;
-  --border-color: #d9e2ec;
-  
-  /* Primary & Gradient (based on your blue palette) */
-  --accent: #1B3C53;
-  --accent-soft: #4e6e81;
 
-  --btn-gradient: linear-gradient(135deg, #2a4f66 0%, #1B3C53 100%);
-  --btn-shadow: rgba(27, 60, 83, 0.35);
+  --text-main: #1f2a30;            
+  --text-muted: #6b7c85;
 
-  /* Warm Neutral */
-  --neutral-warm: #B8A89B;
+  --border-color: #e4e7eb;
+
+
+  --accent: #2F5D62;               
+  --accent-soft: #7FA3A6;
+
+  --accent-secondary: #C8A97E;     
+
+  --btn-gradient: linear-gradient(135deg, #3A6B6F 0%, #2F5D62 100%);
+  --btn-shadow: rgba(47, 93, 98, 0.35);
+
+  --neutral-warm: #D6CCC2;        
 }
 
 .dark {
 
-  /* ========== Dark Mode Colors ========== */
-  --bg-body: #0D1B24;
-  --bg-card: #132A38;
-  --text-main: #E6EEF3;
-  --text-muted: #A9BDC9;
-  --border-color: #2A3F4C;
-  
-  /* Accent adjusted for dark */
-  --accent: #3A6B8A;
-  --accent-soft: #2A4F66;
 
-  --btn-gradient: linear-gradient(135deg, #3A6B8A 0%, #1B3C53 100%);
-  --btn-shadow: rgba(58, 107, 138, 0.30);
+  --bg-body: #0f1a1f;
+  --bg-card: #16262d;
 
-  /* Warm Neutral (dark adapted) */
-  --neutral-warm: #6B5E55;
+
+  --text-main: #E8F1F5;
+  --text-muted: #9FB3BD;
+
+
+  --border-color: #2C3E46;
+
+  --accent: #4F8A8B;
+  --accent-soft: #3A6B6F;
+
+  --accent-secondary: #BFA181;
+
+  --btn-gradient: linear-gradient(135deg, #4F8A8B 0%, #2F5D62 100%);
+  --btn-shadow: rgba(79, 138, 139, 0.30);
+
+  --neutral-warm: #5C5147;
 }
 
-/* ========== Base Styles ========== */
 body {
   font-family: var(--font-main);
   background-color: var(--bg-body);
@@ -51,40 +55,63 @@ body {
   margin: 0;
 }
 
-/* ========== Card ========== */
+
 .tile-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   padding: 24px;
-  border-radius: 12px;
-  transition: transform 0.2s ease, border-color 0.3s ease;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
 }
 
 .tile-card:hover {
   border-color: var(--accent);
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* ========== Button ========== */
 .btn-primary {
   background: var(--btn-gradient);
   color: #ffffff;
-  padding: 8px;
+  padding: 10px 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   font-weight: 500;
   font-family: var(--font-main);
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px var(--btn-shadow);
+
+  box-shadow: 0 6px 12px -2px var(--btn-shadow);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 10px 15px -3px var(--btn-shadow);
+  box-shadow: 0 12px 20px -4px var(--btn-shadow);
+  transform: translateY(-2px);
   opacity: 0.95;
 }
 
-/* ========== Muted Text ========== */
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.tile-badge {
+  background: var(--accent-secondary);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
 .text-muted {
   color: var(--text-muted);
   font-size: 0.9rem;

@@ -8,7 +8,7 @@ import user from "@/assets/user.png";
 import { ThemeSwitch } from "./ThemeSwitch";
 import NavLinks from "./NavLinks";
 import Link from "next/link";
-import logo1 from "@/assets/logo1.png";
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navItems = [
@@ -31,14 +31,16 @@ const Navbar = () => {
       <header className="flex p-4 items-center justify-between">
         <div className="md:flex items-center gap-3 hidden ">
           <div>
-            <h1 className="text-4xl font-bold">
-              <span className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-soft)] bg-clip-text text-transparent">
-                Luxury
-              </span>{" "}
-              <span className="bg-gradient-to-r from-[var(--accent-soft)] to-[var(--neutral-warm)] bg-clip-text text-transparent">
-                Tiles
-              </span>
-            </h1>
+            <Link href="/">
+              <h1 className="text-4xl font-bold">
+                <span className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-soft)] bg-clip-text text-transparent">
+                  Luxury
+                </span>{" "}
+                <span className="bg-gradient-to-r from-[var(--accent-soft)] to-[var(--neutral-warm)] bg-clip-text text-transparent">
+                  Tiles
+                </span>
+              </h1>
+            </Link>
           </div>
         </div>
         <button
