@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner";
 import MarqueeText from "@/components/MarqueeText";
+import TileCard from "@/components/TileCard";
 import { getData } from "@/service/getData";
 import Image from "next/image";
 // import image from '@/assets/heroImage1.jpg'
@@ -11,16 +12,13 @@ export default async function Home() {
     <div>
       <Banner />
       <MarqueeText />
-      <div className="grid grid-cols-4 gap-2">
-        {tiles.map((tile) => (
-          <Image
-            key={tile.id}
-            src={tile.image}
-            alt="tiles"
-            width={600}
-            height={600}
-          ></Image>
-        ))}
+      <div className="container mx-auto my-10">
+        <h1 className="text-3xl font-bold text-[var(--text-main)] text-center">
+          Featured Tiles
+        </h1>
+        <div className="grid grid-cols-4 gap-2 mt-10">
+          {tiles.slice(2,6).map(tile=><TileCard key={tile.id} tile={tile}></TileCard>) }
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'postimg.cc',
+        hostname: '**', 
         port: '',
         pathname: '**',
         search: '',

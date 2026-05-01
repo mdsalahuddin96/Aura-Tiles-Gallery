@@ -10,12 +10,16 @@ import Image from "next/image";
 import heroImage1 from "@/assets/heroImage1.jpg";
 import heroImage2 from "@/assets/heroImage2.jpg";
 import heroImage3 from "@/assets/heroImage4.png";
-import heroImage4 from "@/assets/heroImage5.png"
+import heroImage4 from "@/assets/heroImage5.png";
+import heroImage5 from '@/assets/heroImage6.png';
+import heroImage6 from '@/assets/heroImage7.png';
+import heroImage7 from '@/assets/heroImage10.jpg';
+import heroImage8 from '@/assets/heroImage11.jpg';
 export default function Banner() {
   const router = useRouter();
 
   const images = [
-    heroImage1,heroImage2,heroImage3,heroImage4
+    heroImage2,heroImage3,heroImage4,heroImage5,heroImage6,heroImage7,heroImage8,heroImage1
   ];
 
   return (
