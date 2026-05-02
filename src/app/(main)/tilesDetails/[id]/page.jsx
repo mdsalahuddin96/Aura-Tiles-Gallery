@@ -1,13 +1,16 @@
 import { getData } from "@/service/getData";
-import {ArrowLeft} from '@gravity-ui/icons';
+import { ArrowLeft } from "@gravity-ui/icons";
 import Image from "next/image";
+import Link from "next/link";
 
 export async function generateStaticParams() {
-  const tiles = await fetch('https://luxury-tiles-gallery.vercel.app/data.json').then((res) => res.json())
- 
+  const tiles = await fetch(
+    "https://luxury-tiles-gallery.vercel.app/data.json",
+  ).then((res) => res.json());
+
   return tiles.map((tile) => ({
     id: tile.id,
-  }))
+  }));
 }
 
 const TileDetailsPage = async ({ params }) => {
@@ -70,7 +73,11 @@ const TileDetailsPage = async ({ params }) => {
             </span>
           </div>
         </div>
-        <button className="btn-primary flex items-center gap-1"><ArrowLeft/> See All This Category</button>
+        <Link href={`/all_tiles?category=${category}`}>
+          <button className="btn-primary flex items-center gap-1">
+            <ArrowLeft /> See All This Category
+          </button>
+        </Link>
       </div>
     </div>
   );

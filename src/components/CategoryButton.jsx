@@ -49,7 +49,7 @@ const CategoryButton = ({ categories }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* Custom Navigation Buttons */}
+     
       <button className="custom-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
         <ChevronLeft/>
       </button>

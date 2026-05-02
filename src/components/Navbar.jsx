@@ -92,7 +92,7 @@ const Navbar = () => {
           <div className="flex gap-2 items-center">
             <p>User</p>
             <Image src={user} alt="user" height={40} width={40} />
-            <Button className="btn-primary">Login</Button>
+            <Link href={'/signin'} className="btn-primary">Login</Link>
           </div>
           <ThemeSwitch />
         </div>

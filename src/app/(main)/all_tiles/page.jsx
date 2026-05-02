@@ -2,7 +2,7 @@
 import TileCard from "@/components/TileCard";
 import { getData } from "@/service/getData";
 import Image from "next/image";
-import fileImage from "../../../public/file.svg"
+import fileImage from "../../../../public/file.svg"
 
 const AllTilesPage = async ({ searchParams }) => {
   const { category } = await searchParams;

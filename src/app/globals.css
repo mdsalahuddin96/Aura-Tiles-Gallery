@@ -81,7 +81,7 @@ body {
   font-family: var(--font-main);
   cursor: pointer;
 
-  box-shadow: 0 6px 12px -2px var(--btn-shadow);
+  /* box-shadow: 0 6px 12px -2px var(--btn-shadow); */
 }
 
 .btn-primary:hover {
