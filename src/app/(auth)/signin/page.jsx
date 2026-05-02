@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { ArrowRightToSquare, EyeSlash } from "@gravity-ui/icons";
 import {
   Button,
@@ -15,20 +16,26 @@ import { useState } from "react";
 
 import { FcGoogle } from "react-icons/fc";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import { toast } from "react-toastify";
 const SignInPage = () => {
   const [passwordValue, setPasswordValue] = useState("");
   const [isShow,setIsShow]=useState(false)
-  const onSubmit = (e) => {
+  const onSubmit =async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = {};
-
-    // Convert FormData to plain object
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+    const userData=Object.fromEntries(formData)
+    const {data,error}=await authClient.signIn.email({
+      email:userData.email,
+      password:userData.password,
+      rememberMe: true,
+      callbackURL:'/'
+    })
+    if(error){
+      toast.error(error.message)
+    }
+    else{
+      toast.success('Sign In Successful!')
+    }
   };
   return (
     <div className="flex flex-col gap-10 items-center min-h-screen">

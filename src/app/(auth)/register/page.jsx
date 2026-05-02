@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   Description,
@@ -9,23 +10,38 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const [passwordValue, setPasswordValue] = useState("");
-  const [isShow,setIsShow]=useState(false)
-  const onSubmit = (e) => {
+  const [isShow, setIsShow] = useState(false);
+  const router=useRouter()
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = {};
-
-    // Convert FormData to plain object
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+    const userData = Object.fromEntries(formData);
+    const { data, error } = await authClient.signUp.email(
+      {
+        name: userData.name,
+        email: userData.email,
+        password: userData.password,
+        image: userData.image,
+      },
+      {
+        onSuccess:()=>{
+          router.push('/signin')
+        }
+      },
+    );
+    if(data){
+      toast.success('Sign Up Successful!');
+    }
+    else{
+      toast.error("Error signing up: " + error.message)
+    }
   };
   return (
     <div className="flex flex-col gap-10 items-center min-h-screen">
@@ -79,7 +95,7 @@ const RegisterPage = () => {
             isRequired
             minLength={8}
             name="password"
-            type={isShow?'text':'password'}
+            type={isShow ? "text" : "password"}
             validate={(value) => {
               if (value.length < 8) {
                 return "Password must be at least 8 characters";
