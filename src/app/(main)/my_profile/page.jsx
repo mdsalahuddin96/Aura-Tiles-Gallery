@@ -1,14 +1,13 @@
 "use client";
 import UserUpdateModal from "@/components/UserUpdateModal";
-import { authClient, useSession } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { Envelope } from "@gravity-ui/icons";
 import { Avatar } from "@heroui/react";
 
 const MyProfilePage = () => {
   const { data } = authClient.useSession();
   const user = data?.user;
-  console.log(user?.image);
-  console.log(user?.email);
+
   return (
     <div className="container mx-auto flex justify-center items-center px-10 min-h-screen">
       <div className="h-80 min-w-100 relative bg-[var(--bg-card)] border border-[var(--border-color)] shadow-xl rounded-3xl">

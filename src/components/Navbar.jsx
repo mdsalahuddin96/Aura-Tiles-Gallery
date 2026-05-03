@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ThemeSwitch } from "./ThemeSwitch";
 import NavLinks from "./NavLinks";
 import Link from "next/link";
-import { signOut, useSession } from "@/lib/auth-client";
+import { authClient, signOut } from "@/lib/auth-client";
 import { Avatar, Spinner } from "@heroui/react";
 import { useRouter } from "next/navigation";
 
@@ -23,7 +23,7 @@ const navItems = [
 ];
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { data, isPending } = useSession();
+  const { data, isPending } =authClient.useSession()
   const user = data?.user;
   const router = useRouter();
   const handleSignOut = async () => {

@@ -24,6 +24,7 @@ const RegisterPage = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const userData = Object.fromEntries(formData);
+    console.log(userData)
     const { data, error } = await authClient.signUp.email(
       {
         name: userData.name,
@@ -74,10 +75,9 @@ const RegisterPage = () => {
             <Input placeholder="Enter your name" />
             <FieldError />
           </TextField>
-          <TextField name="image" type="text">
+          <TextField name="image" type="url">
             <Label>Photo-url(link)</Label>
             <Input placeholder="Enter Photo URL" />
-            <FieldError />
           </TextField>
           <TextField
             isRequired

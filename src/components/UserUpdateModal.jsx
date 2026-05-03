@@ -1,18 +1,21 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
+import { Button, FieldError, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { BiEdit, BiSave, BiUser } from "react-icons/bi";
 const UserUpdateModal = () => {
-    const onSubmit=async (e)=>{
-        e.preventDefault();
-        const name=e.target.name.value;
-        const image=e.target.name.value;
-        await authClient.updateUser({
-            name:name,
-            image:image
-        })
-    }
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const image = e.target.image.value;
+    // const formData=new FormData(e.currentTarget)
+    // const {name,image}=Object.fromEntries(formData)
+
+    await authClient.updateUser({
+      name: name,
+      image: image,
+    });
+  };
   return (
     <Modal>
       <Button className="bg-[var(--accent)] text-[--text-main]">
@@ -32,9 +35,20 @@ const UserUpdateModal = () => {
             <Modal.Body className="p-6">
               <Surface variant="default">
                 <form onSubmit={onSubmit} className="flex flex-col gap-4">
-                  <TextField className="w-full" name="name" type="text">
+                  <TextField
+                    className="w-full"
+                    name="name"
+                    type="text"
+                    validate={(value) => {
+                      if (value.length < 3) {
+                        return "Name must be at least 3 characters";
+                      }
+                      return null;
+                    }}
+                  >
                     <Label>Name</Label>
                     <Input placeholder="Enter your name" />
+                    <FieldError />
                   </TextField>
                   <TextField className="w-full" name="image" type="url">
                     <Label>Image URL</Label>
@@ -44,7 +58,9 @@ const UserUpdateModal = () => {
                     <Button slot="close" variant="secondary">
                       Cancel
                     </Button>
-                    <Button type="submit" slot="close"><BiSave/> Save</Button>
+                    <Button type="submit" slot="close">
+                      <BiSave /> Save
+                    </Button>
                   </Modal.Footer>
                 </form>
               </Surface>
