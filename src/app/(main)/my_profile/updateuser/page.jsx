@@ -8,11 +8,9 @@ import {
   FieldError,
   Input,
   Label,
-  Modal,
   TextField,
 } from "@heroui/react";
 import { redirect } from "next/navigation";
-import { BiSave, BiUser } from "react-icons/bi";
 import { GrUpdate } from "react-icons/gr";
 
 const UserUpdatePage = () => {
@@ -35,10 +33,10 @@ const UserUpdatePage = () => {
         <div className="flex justify-center mb-5">
           <Badge.Anchor>
             <Avatar className="size-30">
-              <Avatar.Image src="https://static.vecteezy.com/system/resources/previews/021/548/095/original/default-profile-picture-avatar-user-avatar-icon-person-icon-head-icon-profile-picture-icons-default-anonymous-user-male-and-female-businessman-photo-placeholder-social-network-avatar-portrait-free-vector.jpg" />
+              <Avatar.Image src="https://as2.ftcdn.net/v2/jpg/05/89/93/27/1000_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.jpg" />
               <Avatar.Fallback>AB</Avatar.Fallback>
             </Avatar>
-            <Badge color="accent" size="sm">
+            <Badge color="accent" size="md">
               Update
             </Badge>
           </Badge.Anchor>

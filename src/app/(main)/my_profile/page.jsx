@@ -6,6 +6,8 @@ import { Avatar, Button } from "@heroui/react";
 import Link from "next/link";
 import { BiEdit } from "react-icons/bi";
 
+
+
 const MyProfilePage = () => {
   const { data } = authClient.useSession();
   const user = data?.user;
@@ -13,7 +15,6 @@ const MyProfilePage = () => {
   return (
     <div className="container mx-auto flex justify-center items-center px-10 min-h-screen">
       <div className="h-80 min-w-100 relative bg-[var(--bg-card)] border border-[var(--border-color)] shadow-xl rounded-3xl">
-        
         <Avatar className="size-30 absolute -top-15 left-36">
           <Avatar.Image
             src={user?.image}
@@ -48,7 +49,11 @@ const MyProfilePage = () => {
           </div>
         </div>
         <div className="mt-7 text-center">
-          <Link href={'/my_profile/updateuser'}><Button className="bg-[var(--accent)] text-[--text-main]"><BiEdit/> Update User</Button></Link>
+          <Link href={"/my_profile/updateuser"}>
+            <Button className="bg-[var(--accent)] text-[--text-main]">
+              <BiEdit /> Update User
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
