@@ -1,14 +1,11 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
-import userImage from "@/assets/user.png";
 import { ThemeSwitch } from "./ThemeSwitch";
 import NavLinks from "./NavLinks";
 import Link from "next/link";
-import { authClient, signOut, useSession } from "@/lib/auth-client";
+import { signOut, useSession } from "@/lib/auth-client";
 import { Avatar, Spinner } from "@heroui/react";
 import { useRouter } from "next/navigation";
-
 
 const navItems = [
   {
@@ -28,27 +25,27 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { data, isPending } = useSession();
   const user = data?.user;
-  const router= useRouter()
-  const handleSignOut= async ()=>{
-    signOut()
-    router.push('/')
-  }
+  const router = useRouter();
+  const handleSignOut = async () => {
+    await signOut();
+    router.replace("/");
+  };
 
   return (
     <nav className="sticky top-0 z-40 w-full bg-[var(--bg-card)] border-b border-separator">
       <header className="flex py-4 items-center justify-between container mx-auto px-2 md:px-0">
         {/* Logo */}
         <div className="md:flex items-center gap-3 hidden ">
-            <Link href="/">
-              <h1 className="text-4xl font-bold">
-                <span className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-soft)] bg-clip-text text-transparent">
-                  Luxury
-                </span>{" "}
-                <span className="bg-gradient-to-r from-[var(--accent-soft)] to-[var(--neutral-warm)] bg-clip-text text-transparent">
-                  Tiles
-                </span>
-              </h1>
-            </Link>
+          <Link href="/">
+            <h1 className="text-4xl font-bold">
+              <span className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-soft)] bg-clip-text text-transparent">
+                Luxury
+              </span>{" "}
+              <span className="bg-gradient-to-r from-[var(--accent-soft)] to-[var(--neutral-warm)] bg-clip-text text-transparent">
+                Tiles
+              </span>
+            </h1>
+          </Link>
         </div>
 
         {/* mobile */}
@@ -85,11 +82,11 @@ const Navbar = () => {
                 {item.text}
               </Link>
             ))}
-            <ThemeSwitch className={'block md:hidden'}/>
+            <ThemeSwitch className={"block md:hidden"} />
           </div>
         )}
-         
-         {/* menu */}
+
+        {/* menu */}
         <div>
           <ul className="hidden md:flex items-center gap-4">
             {navItems.map((item, ind) => (
@@ -118,8 +115,11 @@ const Navbar = () => {
           ) : user ? (
             <div className="flex gap-2 items-center">
               <Avatar>
-                <Avatar.Image src={user?.image} alt="user photo"
-                referrerPolicy="no-referrer"></Avatar.Image>
+                <Avatar.Image
+                  src={user?.image}
+                  alt="user photo"
+                  referrerPolicy="no-referrer"
+                ></Avatar.Image>
                 <Avatar.Fallback className="bg-[var(--neutral-warm)] text-[var(--text-main)] text-lg">
                   {user?.name.charAt(0).toUpperCase()}
                 </Avatar.Fallback>
@@ -136,7 +136,7 @@ const Navbar = () => {
             </div>
           )}
 
-          <ThemeSwitch className={'hidden md:block'} />
+          <ThemeSwitch className={"hidden md:block"} />
         </div>
       </header>
     </nav>

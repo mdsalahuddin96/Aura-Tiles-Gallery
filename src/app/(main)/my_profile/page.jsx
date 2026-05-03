@@ -1,4 +1,5 @@
 "use client";
+import UserUpdateModal from "@/components/UserUpdateModal";
 import { authClient, useSession } from "@/lib/auth-client";
 import { Envelope } from "@gravity-ui/icons";
 import { Avatar } from "@heroui/react";
@@ -6,9 +7,12 @@ import { Avatar } from "@heroui/react";
 const MyProfilePage = () => {
   const { data } = authClient.useSession();
   const user = data?.user;
+  console.log(user?.image);
+  console.log(user?.email);
   return (
-    <div className="container mx-auto flex justify-center items-center p-4 border border-amber-600 min-h-screen">
-      <div className="h-80 w-100 relative bg-[var(--bg-card)] border border-[var(--border-color)] shadow-xl rounded-3xl">
+    <div className="container mx-auto flex justify-center items-center px-10 border border-amber-600 min-h-screen">
+      <div className="h-80 min-w-100 relative bg-[var(--bg-card)] border border-[var(--border-color)] shadow-xl rounded-3xl">
+        
         <Avatar className="size-30 absolute -top-15 left-36">
           <Avatar.Image
             src={user?.image}
@@ -20,18 +24,30 @@ const MyProfilePage = () => {
           </Avatar.Fallback>
         </Avatar>
         <div className="flex flex-col justify-center items-center mt-20">
-          <h1 className="text-3xl font-bold ">{user?.name.charAt(0).toUpperCase()+user?.name.slice(1)||""}</h1>
-          <p className="flex items-center gap-1.5 text-[var(--text-muted)]"><Envelope/><span>{user?.email}</span></p>
+          <h1 className="text-3xl font-bold ">
+            {user?.name.charAt(0).toUpperCase() + user?.name.slice(1) || ""}
+          </h1>
+          <p className="flex items-center gap-1.5 text-[var(--text-muted)]">
+            <Envelope />
+            <span>{user?.email}</span>
+          </p>
         </div>
         <div className="grid grid-cols-2 mt-10 px-4">
           <div className="text-center">
-            <p>Created At</p>
-            <span>{user?.createdAt.toLocaleString()}</span>
+            <p className="text-[var(--text-muted)]">Created At</p>
+            <span className="text-[var(--text-muted)] text-sm">
+              {user?.createdAt.toLocaleString()}
+            </span>
           </div>
           <div className="text-center">
-            <p>Updated At</p>
-            <span>{user?.updatedAt.toLocaleString()}</span>
+            <p className="text-[var(--text-muted)]">Updated At</p>
+            <span className="text-[var(--text-muted)] text-sm">
+              {user?.updatedAt.toLocaleString()}
+            </span>
           </div>
+        </div>
+        <div className="mt-7 text-center">
+          <UserUpdateModal />
         </div>
       </div>
     </div>

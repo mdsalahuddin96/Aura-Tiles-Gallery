@@ -135,7 +135,6 @@ const RegisterPage = () => {
             </Button>
           </div>
         </Form>
-        {/* <p className='mt-10'>Don&apos;t have an account? <Link href='/register' className='text-blue-400 underline'>Register</Link></p> */}
       </div>
     </div>
   );
