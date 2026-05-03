@@ -159,22 +159,25 @@ const Footer = () => {
         </div>
         <div className="flex justify-center md:justify-start gap-4">
           <a
-            href="#"
+            href="https://www.linkedin.com/in/md-salah-uddin96"
+            target="blank"
             className="p-2 bg-[var(--accent-soft)] text-[var(--text-main)] rounded-full hover:bg-green-500 hover:text-white transition-all duration-300"
           >
             <LogoLinkedin />
           </a>
           <a
-            href="#"
-            className="p-2 bg-[var(--accent-soft)] text-[var(--text-main)] rounded-full hover:bg-green-500 hover:text-white transition-all duration-300"
-          >
-            <LogoFacebook />
-          </a>
-          <a
-            href="#"
+            href="https://github.com/mdsalahuddin96"
+            target="blank"
             className="p-2 bg-[var(--accent-soft)] text-[var(--text-main)] rounded-full hover:bg-green-500 hover:text-white transition-all duration-300"
           >
             <LogoGithub />
+          </a>
+          <a
+            href="https://www.facebook.com/index.php/"
+            target="blank"
+            className="p-2 bg-[var(--accent-soft)] text-[var(--text-main)] rounded-full hover:bg-green-500 hover:text-white transition-all duration-300"
+          >
+            <LogoFacebook />
           </a>
         </div>
       </div>

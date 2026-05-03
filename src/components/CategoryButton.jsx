@@ -20,7 +20,7 @@ const CategoryButton = ({ categories }) => {
   const handleCategory = (e) => {
     const searchCategory = e.target.name;
     params.set("category", searchCategory);
-    setCategory(searchCategory);
+    setCategory(searchCategory)
     router.push(`${pathName}?${params}`);
   };
 
