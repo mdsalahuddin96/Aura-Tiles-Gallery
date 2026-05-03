@@ -6,7 +6,6 @@ import { Avatar } from "@heroui/react";
 const MyProfilePage = () => {
   const { data } = authClient.useSession();
   const user = data?.user;
-  console.log(user?.createdAt.toLocaleString())
   return (
     <div className="container mx-auto flex justify-center items-center p-4 border border-amber-600 min-h-screen">
       <div className="h-80 w-100 relative bg-[var(--bg-card)] border border-[var(--border-color)] shadow-xl rounded-3xl">
@@ -21,7 +20,7 @@ const MyProfilePage = () => {
           </Avatar.Fallback>
         </Avatar>
         <div className="flex flex-col justify-center items-center mt-20">
-          <h1 className="text-3xl font-bold ">{user?.name.charAt(0).toUpperCase()+user?.name.slice(1)}</h1>
+          <h1 className="text-3xl font-bold ">{user?.name.charAt(0).toUpperCase()+user?.name.slice(1)||""}</h1>
           <p className="flex items-center gap-1.5 text-[var(--text-muted)]"><Envelope/><span>{user?.email}</span></p>
         </div>
         <div className="grid grid-cols-2 mt-10 px-4">
