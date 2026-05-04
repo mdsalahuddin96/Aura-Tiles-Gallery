@@ -4,6 +4,14 @@ A modern, responsive web application where users can explore different types of 
 
 ---
 
+## 📁 Project Description
+
+This is a modern tile gallery platform where users can explore tiles in a structured and user-friendly interface. The application supports category-based filtering and name-based search functionality.
+
+To ensure secure access, detailed product views are restricted to authenticated users only. Users can also manage their profile information, including updating their name and profile image.
+
+---
+
 ## ✨ Features
 
 - 🧱 Browse a wide collection of tiles
@@ -25,14 +33,6 @@ A modern, responsive web application where users can explore different types of 
 - **HeroUI**
 - **Tailwind CSS**
 - **SwiperJS**
-
----
-
-## 📁 Project Description
-
-This is a modern tile gallery platform where users can explore tiles in a structured and user-friendly interface. The application supports category-based filtering and name-based search functionality.
-
-To ensure secure access, detailed product views are restricted to authenticated users only. Users can also manage their profile information, including updating their name and profile image.
 
 ---
 
