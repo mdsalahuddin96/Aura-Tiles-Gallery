@@ -44,6 +44,14 @@ To ensure secure access, detailed product views are restricted to authenticated 
 
 ---
 
+## 🔗 Live Demo
+
+👉 https://luxury-tiles-gallery.vercel.app/
+
+Experience the live version of the project here.
+
+---
+
 ## ⭐ Show Your Support
 
 If you like this project, give it a ⭐ on GitHub!
